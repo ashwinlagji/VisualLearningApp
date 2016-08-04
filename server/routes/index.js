@@ -1,28 +1,26 @@
 var express = require('express');
 var router = express.Router();
 
-//import mongodb package
-var mongodb = require("mongodb");
 
-//MongoDB connection URL - mongodb://host:port/dbName
-var dbHost = "mongodb://";
+function getAllTutorials(res){
+    
+    console.log("request")
+    
+    var response = {
+        "name": "response"
+        , "children": response_items
+    };
+    res.json(response);
+}
 
-//DB Object
-var dbObject;
 
-//get instance of MongoClient to establish connection
-var MongoClient = mongodb.MongoClient;
+router.get("/getAllTutorials", function (req, res) {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
 
-//Connecting to the Mongodb instance.
-//Make sure your mongodb daemon mongod is running on port 27017 on localhost
-MongoClient.connect(dbHost, function (err, db) {
-    if (err) throw err;
-    console.log(err);
-    console.log("Succesfuly connected");
-    dbObject = db;
+    console.log("request")
+    getAllTutorials(res);
 });
-
-
-
 
 module.exports = router;
