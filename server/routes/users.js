@@ -15,14 +15,20 @@ function addUser(req,res){
         email:email
     });
     
-    newUser.save(function(err){
+    newUser.save(function(err,data){
         
         if(err!=null){
             console.log(err.message);
         }
-        console.log("success")
-        res.json({"data":"success"})
+        console.log(data)
+        res.json({"data":data})
     })
+}
+
+
+function deleteUser(req,res){
+    
+    
 }
 
 
@@ -31,8 +37,7 @@ router.post('/login', function(req, res, next) {
     res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     
-//    req.body.variable_name
-//    req.param.variable_name
+
     
 });
 
@@ -40,7 +45,7 @@ router.post('/adduser',function(req,res,next){
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
-    console.log("request")
+    console.log("Add user request")
     addUser(req,res);
     
 });
@@ -50,7 +55,8 @@ router.post('/DeleteUser',function(req,res,next){
     res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
 
-
+    console.log("delete req ")
+    deleteUser(req,res);
 });
 
 router.post('/UpdateUser',function(req,res,next){
@@ -58,7 +64,7 @@ router.post('/UpdateUser',function(req,res,next){
     res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
 
-
+    
 });
 
 
