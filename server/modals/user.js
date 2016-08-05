@@ -1,25 +1,31 @@
-//{
-//    _id: "any id"
-//    , title_of_tutorial: "insertion sort"
-//    , category: "mathematics |computer programming| science..."
-//    content: {
-//        video: "video_link"
-//        , gif: "gif_link"
-//        , text: "text"
-//    }
-//    , reviews: [{
-//            "name": "abc"
-//            , "comment": "bbsbcsdbcib sdcb "
-//            , "date": 1.455800194995e+12
-//        }
-//        
-//        , {
-//            "name": "abc"
-//            , "comment": "This is mym comment "
-//            , "date": 1.455800194995e+12
-//                 }]
-//
-//}
-//
+var mongoose = require('mongoose');
+var schema = mongoose.Schema
+var connection = require("./../config/config")
 
+var userSchema = {
+
+    userName: {
+        type: String
+        , requried: true
+    }
+    , password: {
+        type: String
+        , requried: true
+        , minlength: 8
+    }
+    , email: {
+        type: String
+        , match: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/
         
+        , requried: true
+    }
+};
+
+var userSchemaObj = new connection.Schema(userSchema, {
+    collection: "users"
+    , versionKey: false
+})
+
+var user = connection.model('user', userSchemaObj)
+
+module.exports = user
