@@ -19,7 +19,7 @@ angular.module("visualLearningApp").controller('MasterCtrl', ['$scope','$http','
 
         });
     
-    $http.get("http://localhost:3000/find/57a864a2192201e815fc8d1d")
+    $http.get("http://localhost:3000/find/57a434791bd1478c5708245b")
     .then(function(data){
         
         $scope.tutorial=data.data

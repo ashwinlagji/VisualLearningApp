@@ -16,6 +16,9 @@ config(['$locationProvider' ,'$routeProvider',
             when('/registeruser', {
                 templateUrl: 'templates/add-user-template.html'
             }).
+            when('/addTutorial', {
+                templateUrl: 'templates/add-new-tutorial.html'
+            }).
             otherwise('/tutorials');
         }
        ]);

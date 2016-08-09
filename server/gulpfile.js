@@ -18,12 +18,12 @@ gulp.task( 'server:restart', function() {
 });
 
 gulp.task('script',function(){
-    
-    return gulp.src(["./server/*.js","./config/*.js","./modals/*.js","./routes/*.js","./*.js","./*.json"])
+//    ["./server/*.js","./config/*.js","./modals/*.js","./routes/*.js","./*.js","./*.json"]
+    return gulp.src("./*.js")
     .pipe(jshint())
     .pipe(jshint.reporter());
     
 });
 
 
-gulp.task('default',['script','server:start','server:restart']);
+gulp.task('default',['server:start','server:restart']);

@@ -79,6 +79,19 @@ function addcomment(req,res){
 }
 
 
+
+function findoneturorial(req,res){
+    
+    var id=req.params.id;
+    
+    Tutorial.findOne({ _id: id}, function (err, doc){
+        res.json(doc);
+    });
+    
+    
+};
+
+
 router.get("/getAllTutorials", function (req, res) {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
@@ -86,6 +99,16 @@ router.get("/getAllTutorials", function (req, res) {
 
 
     getAllTutorials(res);
+});
+
+
+router.get("/find/:id", function (req, res) {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+
+
+    findoneturorial(req,res);
 });
 
 router.post("/addtutorial", function (req, res) {

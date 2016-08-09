@@ -5,10 +5,12 @@ var user= require("./../modals/user");
 
 function addUser(req,res){
     
-    userName=req.body.username;
-    email=req.body.email
+    userName=req.params.username;
+    email=req.query.email
     password=req.body.password
     
+    
+    console.log(" "+userName+" "+email+" "+password)
     var newUser = new user({
         userName:userName,
         password:password,
