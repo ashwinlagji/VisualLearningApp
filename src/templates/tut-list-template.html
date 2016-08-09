@@ -1,0 +1,31 @@
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-2">
+                <p>
+                    <label>Search:</label>
+                    <input ng-model="searchKey" />
+                </p>
+
+                <p>
+                    Sort by:
+                    <select ng-model="sortKey">
+                        <option value="title" >Alphabetical</option>
+                        <option value="category">category</option>
+                    </select>
+                </p>
+
+            </div>
+
+            <div class="col-lg-10">
+                <ul class="tut">
+                    <li ng-repeat="tutorial in tutorials|filter:{title:searchKey}|orderBy:sortKey" >
+                        <a href="#!/tutorials/{{tutorial._id}}/">
+                        <h1>{{tutorial.title}}</h1><br>
+                            <label>Category:{{tutorial.category}}</label>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>

@@ -1,1 +1,1 @@
-angular.module('main_module_name', ['list of components requried']);
+angular.module('visualLearningApp', ["ngRoute","ngSanitize"]);

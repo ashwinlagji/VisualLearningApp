@@ -1,1 +1,21 @@
-//config file for routes
+'use strict';
+
+angular.
+module('visualLearningApp').
+config(['$locationProvider' ,'$routeProvider',
+        function config($locationProvider, $routeProvider) {
+            $locationProvider.hashPrefix('!');
+            $routeProvider.
+            when('/tutorials/:id', {
+
+                templateUrl: 'templates/tut-details-template.html'
+            }).
+            when('/tutorials', {
+                templateUrl: 'templates/tut-list-template.html'
+            }).
+            when('/registeruser', {
+                templateUrl: 'templates/add-user-template.html'
+            }).
+            otherwise('/tutorials');
+        }
+       ]);
