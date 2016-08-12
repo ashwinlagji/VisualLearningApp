@@ -1,12 +1,8 @@
-angular.module("visualLearningApp").controller('MasterCtrl', ['$scope','$http','$sce', function ($scope,$http,$sce) {
+angular.module("visualLearningApp").controller('MasterCtrl', ['$scope','$http', function ($scope,$http) {
 
     
     $scope.searchKey="";
     $scope.sortKey="title";
-    
-    $scope.deliberatelyTrustDangerousSnippet = function() {
-        return $sce.trustAsResourceUrl($scope.tutorial.content.videoLink);
-    };
     
     $http.get("http://localhost:3000/getAllTutorials")
         .then(function (data) {
@@ -18,17 +14,6 @@ angular.module("visualLearningApp").controller('MasterCtrl', ['$scope','$http','
 
 
         });
-    
-    $http.get("http://localhost:3000/find/57a434791bd1478c5708245b")
-    .then(function(data){
-        
-        $scope.tutorial=data.data
-        
-        console.log($scope.tutorial)
-        
-    },function(err){
-        
-    });
     
     $scope.registeruser=function(){
         
@@ -47,6 +32,12 @@ angular.module("visualLearningApp").controller('MasterCtrl', ['$scope','$http','
                   function(response) { 
             console.log('request failed')
         });
+    }
+    
+    $scope.addTutorial=function(){
+        
+        
+        
     }
 
 }])

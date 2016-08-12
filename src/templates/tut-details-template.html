@@ -1,14 +1,19 @@
 <div>
 
+<!--
     <iframe ng-src={{deliberatelyTrustDangerousSnippet()}}
             width="560" height="315" frameborder="0" allowfullscreen></iframe>
+-->
+    <div class="embed-responsive embed-responsive-16by9">
+        <iframe width="640" height="360" ng-src="{{deliberatelyTrustDangerousSnippet()}}" frameborder="0" allowfullscreen></iframe>
+    </div>
     <img src="{{tutorial.content.gif}}">
     <p>{{tutorial.content.text}}</p>
     
     
 <!--    comments section -->
     
-    <!--    glyphicon glyphicon-user  ObjectId("57a434791bd1478c5708245b")-->
+    <!--    glyphicon glyphicon-user  57a864a2192201e815fc8d1d-->
     
     <div class="container">
         <div class="row">
@@ -39,6 +44,24 @@
     </div>
     
 <!--    add comment section -->
+    <div class="panel-group col-lg-8">
+        <div class="panel panel-info">
+            <div class="panel-heading">Comment</div>
+            <div class="panel-body">
+                <label >Username</label>
+                <input type="text" class="form-control" ng-required ng-bind="name">
+                <label >Comment:</label>
+                <textarea ng-required class="form-control" ng-bind="comment"></textarea>
+            
+            </div>
+            <div class="panel-footer">
+                <button type="submit" class="btn btn-info">Submit</button> 
+            </div>
+        </div>
+    </div>
+    
+    
+    
     
     
 </div>

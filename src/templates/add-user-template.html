@@ -1,16 +1,35 @@
-<form class="form-inline" novalidate role="form" name="regForm">
-    <div class="form-group">
-        <label class="sr-only" >Username</label><br>
-        <input type="email" class="form-control" id="username" ng-model="username" ng-requried="true"><br>
+<div class="panel-group">
+    <div class="panel panel-info">
+        <div class="panel-heading">Add new tutorial</div>
+        <div class="panel-body">
+
+            <form class="form-inline" novalidate role="form" name="regForm">
+                <div class="form-group">
+                    <label>Username</label>
+                    <br>
+                    <input type="email" class="form-control" id="username" ng-model="username" ng-requried="true">
+                    <br>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="email">Email address:</label>
+                    <br>
+                    <input type="email" class="form-control" id="email" ng-model="email" ng-requried="true">
+                    <br>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="pwd">Password:</label>
+                    <br>
+                    <input type="password" class="form-control" id="pwd" ng-model="password" ng-requried="true">
+                    <br>
+                </div>
+                <br>
+                </form>
+                </div>
+            <div class="panel-footer">
+                <button ng-disabled="{{regForm.$invalid}}" type="submit" class="btn btn-default" ng-click="registeruser()">Submit</button>
+            
+        </div>
     </div>
-    <div class="form-group">
-        <label class="sr-only" for="email">Email address:</label><br>
-        <input type="email" class="form-control" id="email" ng-model="email" ng-requried="true"><br>
-    </div>
-    <div class="form-group">
-        <label class="sr-only" for="pwd">Password:</label><br>
-        <input type="password" class="form-control" id="pwd" ng-model="password" ng-requried="true"><br>
-    </div>
-    
-    <button ng-disabled="{{regForm.$invalid}}" type="submit" class="btn btn-default" ng-click="registeruser()">Submit</button>
-</form>
+</div>

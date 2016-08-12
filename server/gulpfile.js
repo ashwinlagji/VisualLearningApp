@@ -17,13 +17,6 @@ gulp.task( 'server:restart', function() {
     gulp.watch( [ './**/*.js' ], server.restart );
 });
 
-gulp.task('script',function(){
-//    ["./server/*.js","./config/*.js","./modals/*.js","./routes/*.js","./*.js","./*.json"]
-    return gulp.src("./*.js")
-    .pipe(jshint())
-    .pipe(jshint.reporter());
-    
-});
 
 
 gulp.task('default',['server:start','server:restart']);
